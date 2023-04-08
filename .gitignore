@@ -1,0 +1,31 @@
+# Composer
+/vendor/
+composer.lock
+composer.phar
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and backups
+*.log
+*.bak
+*.swp
+
+# Config files
+.env
+.env.*
+*.ini
+*.conf
+
+# Compiled files
+*.phar
+*.zip
+*.tar
+*.gz
+
+# Other
+.DS_Store
+Thumbs.db
