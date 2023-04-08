@@ -24,7 +24,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        php-versions: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
+        php-versions: ['7.2', '7.3', '7.4', '8.0', '8.1']
         phpunit-versions: ['latest']
         include:
         - operating-system: 'ubuntu-latest'
@@ -43,7 +43,6 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "7.1"
           - "7.2"
           - "7.3"
           - "7.4"
@@ -85,7 +84,6 @@ jobs:
           - AUTOLOAD=0
           - AUTOLOAD=1
         php-version:
-          - "7.1"
           - "7.2"
           - "7.3"
           - "7.4"
