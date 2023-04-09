@@ -74,4 +74,39 @@ class Currensees
             return false;
         }
     }
+
+    public function getCurrencies($username, $day, $month, $year)
+    {
+        $client = new Client();
+        $headers = [
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/currencies?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+    
+    public function getCurrency($uuid, $username, $day, $month, $year)
+    {
+        $client = new Client();
+        $headers = [
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/currencies/' . $uuid . '?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+    
 }
