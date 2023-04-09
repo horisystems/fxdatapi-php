@@ -108,5 +108,39 @@ class Currensees
             return false;
         }
     }
+
+    public function getHistoricalData($username, $date, $day, $month, $year)
+    {
+        $client = new Client();
+        $headers = [
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/historical?username=' . $username . '&date=' . $date . '&day=' . $day . '&month=' . $month . '&year=' . $year;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }    
+
+    public function getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date)
+    {
+        $client = new Client();
+        $headers = [
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/historical/' . $uuid . '?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year . '&date_string=' . $date;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }    
     
 }

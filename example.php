@@ -25,6 +25,14 @@ $baseCurrency = 'GBP';
 $targetCurrency = 'EUR';
 $amount = 1000;
 
+// Set the date for which you want to retrieve the currencies
+$day = '05';
+$month = '04';
+$year = '2023';
+
+// Set the UUID of the currency you want to retrieve
+$uuid = 'currency_uuid';
+
 // Call the convert method to perform the currency conversion
 $conversionResult = $currensees->convert($date, $baseCurrency, $targetCurrency, $amount);
 if ($conversionResult) {
@@ -41,14 +49,6 @@ if ($convertAllResult) {
 } else {
     echo "Conversion to all currencies failed: " . $convertAllResult['error'] . "\n";
 }
-
-// Set the date for which you want to retrieve the currencies
-$day = '02';
-$month = '04';
-$year = '2023';
-
-// Set the UUID of the currency you want to retrieve
-$uuid = 'currency_uuid';
 
 // Call the getCurrencies method to get the available currencies for the given date
 $currenciesResult = $currensees->getCurrencies($username, $day, $month, $year);
@@ -68,4 +68,21 @@ if ($currencyResult) {
     echo "Failed to retrieve currency details for the given date.\n";
 }
 
+// Call the getHistoricalData method to get historical data for all currencies for the given date
+$historicalDataResult = $currensees->getHistoricalData($username, $date, $day, $month, $year);
+if ($historicalDataResult) {
+    echo "Historical data for " . $date . ":\n";
+    echo json_encode($historicalDataResult) . "\n";
+} else {
+    echo "Failed to retrieve historical data for the given date.\n";
+}
+
+// Call the getHistoricalDataForCurrency method to get historical data for a specific currency
+$historicalDataForCurrencyResult = $currensees->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
+if ($historicalDataForCurrencyResult) {
+    echo "Historical data for currency " . $uuid . " on " . $date . ":\n";
+    echo json_encode($historicalDataForCurrencyResult) . "\n";
+} else {
+    echo "Failed to retrieve historical data for the given currency and date.\n";
+}
 ?>

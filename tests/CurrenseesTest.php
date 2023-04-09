@@ -26,7 +26,7 @@ class CurrenseesTest extends TestCase
 
     public function testConvert()
     {
-        $date = '2023_04_03';
+        $date = '2023_04_05';
         $baseCurrency = 'GBP';
         $targetCurrency = 'EUR';
         $amount = 1000;
@@ -39,7 +39,7 @@ class CurrenseesTest extends TestCase
     {
         $baseCurrency = 'GBP';
         $amount = 1000;
-        $date = '2023_04_03';
+        $date = '2023_04_05';
 
         $result = $this->currensees->convertAll($baseCurrency, $amount, $date);
         $this->assertTrue(is_array($result));
@@ -48,7 +48,7 @@ class CurrenseesTest extends TestCase
     public function testGetCurrencies()
     {
         $username = 'your_username';
-        $day = '02';
+        $day = '05';
         $month = '04';
         $year = '2023';
 
@@ -60,11 +60,36 @@ class CurrenseesTest extends TestCase
     {
         $uuid = 'currency_uuid';
         $username = 'your_username';
-        $day = '02';
+        $day = '05';
         $month = '04';
         $year = '2023';
 
         $result = $this->currensees->getCurrency($uuid, $username, $day, $month, $year);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetHistoricalData()
+    {
+        $username = 'your_username';
+        $date = '2023_04_05';
+        $day = '05';
+        $month = '04';
+        $year = '2023';
+
+        $result = $this->currensees->getHistoricalData($username, $date, $day, $month, $year);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetHistoricalDataForCurrency()
+    {
+        $uuid = 'currency_uuid';
+        $username = 'your_username';
+        $day = '05';
+        $month = '04';
+        $year = '2023';
+        $date = '2023_04_05';
+
+        $result = $this->currensees->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
         $this->assertTrue(is_array($result));
     }
 }
