@@ -81,6 +81,32 @@ if ($convertAllResult) {
 } else {
     echo "Conversion to all currencies failed: " . $convertAllResult['error'] . "\n";
 }
+
+// Set the date for which you want to retrieve the currencies
+$day = '02';
+$month = '04';
+$year = '2023';
+
+// Set the UUID of the currency you want to retrieve
+$uuid = 'currency_uuid';
+
+// Call the getCurrencies method to get the available currencies for the given date
+$currenciesResult = $currensees->getCurrencies($username, $day, $month, $year);
+if ($currenciesResult) {
+    echo "Currencies for " . $day . "/" . $month . "/" . $year . ":\n";
+    echo json_encode($currenciesResult) . "\n";
+} else {
+    echo "Failed to retrieve currencies for the given date.\n";
+}
+
+// Call the getCurrency method to get the details of the specific currency for the given date
+$currencyResult = $currensees->getCurrency($uuid, $username, $day, $month, $year);
+if ($currencyResult) {
+    echo "Currency details for " . $day . "/" . $month . "/" . $year . ":\n";
+    echo json_encode($currencyResult) . "\n";
+} else {
+    echo "Failed to retrieve currency details for the given date.\n";
+}
 ?>
 ```
 
