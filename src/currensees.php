@@ -141,6 +141,42 @@ class Currensees
         } else {
             return false;
         }
-    }    
+    }
+
+    public function getDailyAverage($date)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $body = '';
+        $request = new Request('GET', 'https://currensees.com/v1/daily_average/' . $date, $headers, $body);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getWeeklyAverage($from_date, $to_date)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $body = '';
+        $request = new Request('GET', 'https://currensees.com/v1/weekly_average/' . $from_date . '/' . $to_date, $headers, $body);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
     
 }

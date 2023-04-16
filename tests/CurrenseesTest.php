@@ -92,4 +92,21 @@ class CurrenseesTest extends TestCase
         $result = $this->currensees->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
         $this->assertTrue(is_array($result));
     }
+
+    public function testGetDailyAverage()
+    {
+        $date = '2023_04_05';
+    
+        $result = $this->currensees->getDailyAverage($date);
+        $this->assertTrue(is_array($result));
+    }
+    
+    public function testGetWeeklyAverage()
+    {
+        $from_date = '2023_04_03';
+        $to_date = '2023_04_07';
+    
+        $result = $this->currensees->getWeeklyAverage($from_date, $to_date);
+        $this->assertTrue(is_array($result));
+    }    
 }

@@ -73,6 +73,13 @@ $year = '2023';
 // Set the UUID of the currency you want to retrieve
 $uuid = 'currency_uuid';
 
+// Set the date for which you want to retrieve the daily average
+$dailyAverageDate = '2023_04_10';
+
+// Set the date range for which you want to retrieve the weekly average
+$weeklyAverageFromDate = '2023_04_03';
+$weeklyAverageToDate = '2023_04_07';
+
 // Call the convert method to perform the currency conversion
 $conversionResult = $currensees->convert($date, $baseCurrency, $targetCurrency, $amount);
 if ($conversionResult) {
@@ -124,6 +131,24 @@ if ($historicalDataForCurrencyResult) {
     echo json_encode($historicalDataForCurrencyResult) . "\n";
 } else {
     echo "Failed to retrieve historical data for the given currency and date.\n";
+}
+
+// Call the getDailyAverage method to get the daily average for the given date
+$dailyAverageResult = $currensees->getDailyAverage($dailyAverageDate);
+if ($dailyAverageResult) {
+    echo "Daily average for " . $dailyAverageDate . ":\n";
+    echo json_encode($dailyAverageResult) . "\n";
+} else {
+    echo "Failed to retrieve daily average for the given date.\n";
+}
+
+// Call the getWeeklyAverage method to get the weekly average for the given date range
+$weeklyAverageResult = $currensees->getWeeklyAverage($weeklyAverageFromDate, $weeklyAverageToDate);
+if ($weeklyAverageResult) {
+    echo "Weekly average from " . $weeklyAverageFromDate . " to " . $weeklyAverageToDate . ":\n";
+    echo json_encode($weeklyAverageResult) . "\n";
+} else {
+    echo "Failed to retrieve weekly average for the given date range.\n";
 }
 ?>
 ```
