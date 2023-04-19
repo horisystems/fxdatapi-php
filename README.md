@@ -150,6 +150,24 @@ if ($weeklyAverageResult) {
 } else {
     echo "Failed to retrieve weekly average for the given date range.\n";
 }
+
+// Call the getMarginsSpreads method to get the margins and spreads for the given date
+$marginsSpreadsResult = $currensees->getMarginsSpreads($username, $day, $month, $year);
+if ($marginsSpreadsResult) {
+    echo "Margins and spreads for " . $day . "/" . $month . "/" . $year . ":\n";
+    echo json_encode($marginsSpreadsResult) . "\n";
+} else {
+    echo "Failed to retrieve margins and spreads for the given date.\n";
+}
+
+// Call the getMarginSpread method to get the details of the specific margin or spread for the given date
+$marginSpreadResult = $currensees->getMarginSpread($uuid, $username, $day, $month, $year);
+if ($marginSpreadResult) {
+    echo "Margin or spread details for " . $day . "/" . $month . "/" . $year . ":\n";
+    echo json_encode($marginSpreadResult) . "\n";
+} else {
+    echo "Failed to retrieve margin or spread details for the given date.\n";
+}
 ?>
 ```
 

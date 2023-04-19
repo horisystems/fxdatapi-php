@@ -108,5 +108,28 @@ class CurrenseesTest extends TestCase
     
         $result = $this->currensees->getWeeklyAverage($from_date, $to_date);
         $this->assertTrue(is_array($result));
-    }    
+    }
+
+    public function testGetMarginsSpreads()
+    {
+        $username = 'your_username';
+        $day = '19';
+        $month = '04';
+        $year = '2023';
+
+        $result = $this->currensees->getMarginsSpreads($username, $day, $month, $year);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetMarginSpread()
+    {
+        $uuid = 'uuid_uuid';
+        $username = 'your_username';
+        $day = '19';
+        $month = '04';
+        $year = '2023';
+
+        $result = $this->currensees->getMarginSpread($uuid, $username, $day, $month, $year);
+        $this->assertTrue(is_array($result));
+    }
 }

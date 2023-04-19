@@ -178,5 +178,41 @@ class Currensees
             return false;
         }
     }
+
+    public function getMarginsSpreads($username, $day, $month, $year)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/margins_spreads?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getMarginSpread($uuid, $username, $day, $month, $year)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/margins_spreads/' . $uuid . '?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+    
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
     
 }
