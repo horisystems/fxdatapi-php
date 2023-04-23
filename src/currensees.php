@@ -30,7 +30,7 @@ class Currensees
         }
     }
 
-    public function convert($date, $base_currency, $target_currency, $amount)
+    public function convert($username, $date, $base_currency, $target_currency, $amount)
     {
         $client = new Client();
         $headers = [
@@ -38,6 +38,7 @@ class Currensees
             'Accept' => 'application/json'
         ];
         $body = json_encode([
+            "username" => $username,
             "date" => $date,
             "base_currency" => $base_currency,
             "target_currency" => $target_currency,
@@ -53,7 +54,7 @@ class Currensees
         }
     }
 
-    public function convertAll($base_currency, $amount, $date)
+    public function convertAll($username, $base_currency, $amount, $date)
     {
         $client = new Client();
         $headers = [
@@ -61,6 +62,7 @@ class Currensees
             'Accept' => 'application/json'
         ];
         $body = json_encode([
+            "username" => $username,
             "base_currency" => $base_currency,
             "amount" => $amount,
             "date" => $date
@@ -109,7 +111,7 @@ class Currensees
         }
     }
 
-    public function getHistoricalData($username, $date, $day, $month, $year)
+    public function getHistoricalData($username, $date, $year, $day, $month)
     {
         $client = new Client();
         $headers = [
@@ -126,13 +128,13 @@ class Currensees
         }
     }    
 
-    public function getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date)
+    public function getHistoricalDataForCurrency($uuid, $username, $date, $day, $month, $year)
     {
         $client = new Client();
         $headers = [
             'Accept' => 'application/json'
         ];
-        $url = 'https://currensees.com/v1/historical/' . $uuid . '?username=' . $username . '&day=' . $day . '&month=' . $month . '&year=' . $year . '&date_string=' . $date;
+        $url = 'https://currensees.com/v1/historical/' . $uuid . '?username=' . $username . '&date_string=' . $date . '&day=' . $day . '&month=' . $month . '&year=' . $year;
         $request = new Request('GET', $url, $headers);
         $res = $client->sendAsync($request)->wait();
     

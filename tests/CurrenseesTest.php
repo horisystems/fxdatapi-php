@@ -26,22 +26,24 @@ class CurrenseesTest extends TestCase
 
     public function testConvert()
     {
+        $username = 'your_username';
         $date = '2023_04_05';
         $baseCurrency = 'GBP';
         $targetCurrency = 'EUR';
         $amount = 1000;
 
-        $result = $this->currensees->convert($date, $baseCurrency, $targetCurrency, $amount);
+        $result = $this->currensees->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
         $this->assertTrue(is_array($result));
     }
 
     public function testConvertAll()
     {
+        $username = 'your_username';
         $baseCurrency = 'GBP';
         $amount = 1000;
         $date = '2023_04_05';
 
-        $result = $this->currensees->convertAll($baseCurrency, $amount, $date);
+        $result = $this->currensees->convertAll($username, $baseCurrency, $amount, $date);
         $this->assertTrue(is_array($result));
     }
 

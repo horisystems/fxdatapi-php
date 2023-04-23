@@ -81,7 +81,7 @@ $weeklyAverageFromDate = '2023_04_03';
 $weeklyAverageToDate = '2023_04_07';
 
 // Call the convert method to perform the currency conversion
-$conversionResult = $currensees->convert($date, $baseCurrency, $targetCurrency, $amount);
+$conversionResult = $currensees->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
 if ($conversionResult) {
     echo "Conversion result: " . json_encode($conversionResult) . "\n";
 } else {
@@ -89,7 +89,7 @@ if ($conversionResult) {
 }
 
 // Call the convertAll method to convert the base currency to all available target currencies
-$convertAllResult = $currensees->convertAll($baseCurrency, $amount, $date);
+$convertAllResult = $currensees->convertAll($username, $baseCurrency, $amount, $date);
 if ($convertAllResult) {
     echo "Conversion to all currencies successful:\n";
     echo json_encode($convertAllResult) . "\n";
