@@ -134,4 +134,38 @@ class CurrenseesTest extends TestCase
         $result = $this->currensees->getMarginSpread($uuid, $username, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
+
+    public function testGetAllPerformances()
+    {
+        $username = 'your_username';
+
+        $result = $this->currensees->getAllPerformances($username);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetPerformanceById()
+    {
+        $uuid = 'd4762c44-e3c6-11ed-8570-acde48001122';
+        $username = 'your_username';
+
+        $result = $this->currensees->getPerformanceById($uuid, $username);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetAllSignals()
+    {
+        $username = 'your_username';
+
+        $result = $this->currensees->getAllSignals($username);
+        $this->assertTrue(is_array($result));
+    }
+
+    public function testGetSignalById()
+    {
+        $uuid = 'd46cc05a-e3c6-11ed-8570-acde48001122';
+        $username = 'your_username';
+
+        $result = $this->currensees->getSignalById($uuid, $username);
+        $this->assertTrue(is_array($result));
+    }
 }

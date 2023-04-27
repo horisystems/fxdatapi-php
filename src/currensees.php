@@ -217,4 +217,76 @@ class Currensees
         }
     }
     
+    public function getAllPerformances($username)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/performances?username=' . $username;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getPerformanceById($uuid, $username)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/performances/' . $uuid . '?username=' . $username;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getAllSignals($username)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/signals?username=' . $username;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getSignalById($uuid, $username)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $url = 'https://currensees.com/v1/signals/' . $uuid . '?username=' . $username;
+        $request = new Request('GET', $url, $headers);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
 }

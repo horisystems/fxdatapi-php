@@ -80,6 +80,12 @@ $dailyAverageDate = '2023_04_10';
 $weeklyAverageFromDate = '2023_04_03';
 $weeklyAverageToDate = '2023_04_07';
 
+// Set the UUID of the performance you want to retrieve
+$performanceId = 'performance_id';
+
+// Set the UUID of the signal you want to retrieve
+$signalId = 'signal_id';
+
 // Call the convert method to perform the currency conversion
 $conversionResult = $currensees->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
 if ($conversionResult) {
@@ -168,6 +174,43 @@ if ($marginSpreadResult) {
 } else {
     echo "Failed to retrieve margin or spread details for the given date.\n";
 }
+
+// Call the getAllPerformances method to get all performances
+$getAllPerformancesResult = $currensees->getAllPerformances($username);
+if ($getAllPerformancesResult) {
+    echo "Performances list:\n";
+    echo json_encode($getAllPerformancesResult) . "\n";
+} else {
+    echo "Failed to retrieve performances.\n";
+}
+
+// Call the getPerformanceById method to get the details of a specific performance
+$getPerformanceByIdResult = $currensees->getPerformanceById($performanceId, $username);
+if ($getPerformanceByIdResult) {
+    echo "Performance details for " . $performanceId . ":\n";
+    echo json_encode($getPerformanceByIdResult) . "\n";
+} else {
+    echo "Failed to retrieve performance details for the given ID.\n";
+}
+
+// Call the getAllSignals method to get all signals
+$getAllSignalsResult = $currensees->getAllSignals($username);
+if ($getAllSignalsResult) {
+    echo "Signals list:\n";
+    echo json_encode($getAllSignalsResult) . "\n";
+} else {
+    echo "Failed to retrieve signals.\n";
+}
+
+// Call the getSignalById method to get the details of a specific signal
+$getSignalByIdResult = $currensees->getSignalById($signalId, $username);
+if ($getSignalByIdResult) {
+    echo "Signal details for " . $signalId . ":\n";
+    echo json_encode($getSignalByIdResult) . "\n";
+} else {
+    echo "Failed to retrieve signal details for the given ID.\n";
+}
+
 ?>
 ```
 
