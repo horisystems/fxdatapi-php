@@ -17,7 +17,7 @@
         "php": ">=7.2",
         "guzzlehttp\/guzzle": "^7.5"
     },
-    "license": "BSD 3-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "Moat Systems Limited",
