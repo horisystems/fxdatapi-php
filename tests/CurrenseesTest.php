@@ -112,6 +112,15 @@ class CurrenseesTest extends TestCase
         $this->assertTrue(is_array($result));
     }
 
+    public function testGetMonthlyAverage()
+    {
+        $year = '2023';
+        $month = '04';
+    
+        $result = $this->currensees->getMonthlyAverage($year, $month);
+        $this->assertTrue(is_array($result));
+    }
+
     public function testGetMarginsSpreads()
     {
         $username = 'your_username';

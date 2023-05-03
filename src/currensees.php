@@ -181,6 +181,24 @@ class Currensees
         }
     }
 
+    public function getMonthlyAverage($year, $month)
+    {
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ];
+        $body = '';
+        $request = new Request('GET', 'https://currensees.com/v1/monthly_average/' . $year . '/' . $month, $headers, $body);
+        $res = $client->sendAsync($request)->wait();
+
+        if ($res->getStatusCode() == 200) {
+            return json_decode($res->getBody(), true);
+        } else {
+            return false;
+        }
+    }
+
     public function getMarginsSpreads($username, $day, $month, $year)
     {
         $client = new Client();

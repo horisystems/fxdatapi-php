@@ -157,6 +157,15 @@ if ($weeklyAverageResult) {
     echo "Failed to retrieve weekly average for the given date range.\n";
 }
 
+// Call the getMonthlyAverage method to get the monthly average for the given year and month
+$monthlyAverageResult = $currensees->getMonthlyAverage($monthlyAverageYear, $monthlyAverageMonth);
+if ($monthlyAverageResult) {
+    echo "Monthly average for " . $monthlyAverageYear . " and " . $monthlyAverageMonth . ":\n";
+    echo json_encode($monthlyAverageResult) . "\n";
+} else {
+    echo "Failed to retrieve monthly average for the given year and month.\n";
+}
+
 // Call the getMarginsSpreads method to get the margins and spreads for the given date
 $marginsSpreadsResult = $currensees->getMarginsSpreads($username, $day, $month, $year);
 if ($marginsSpreadsResult) {
