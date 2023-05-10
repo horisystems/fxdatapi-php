@@ -1,7 +1,7 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->notPath('tests/CurrenseesTest.php');
+    ->notPath('tests/FxdatapiTest.php');
 
 $config = new PhpCsFixer\Config();
 $config->setRiskyAllowed(true);

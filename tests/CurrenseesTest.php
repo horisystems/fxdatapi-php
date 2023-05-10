@@ -1,17 +1,17 @@
 <?php
 
-namespace Currensees\Tests;
+namespace Fxdatapi\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Currensees\Currensees;
+use Fxdatapi\Fxdatapi;
 
-class CurrenseesTest extends TestCase
+class FxdatapiTest extends TestCase
 {
-    protected $currensees;
+    protected $fxdatapi;
 
     protected function setUp(): void
     {
-        $this->currensees = new Currensees();
+        $this->fxdatapi = new Fxdatapi();
     }
 
     public function testLogin()
@@ -19,7 +19,7 @@ class CurrenseesTest extends TestCase
         $username = 'your_username';
         $password = 'your_password';
 
-        $result = $this->currensees->login($username, $password);
+        $result = $this->fxdatapi->login($username, $password);
         $this->assertTrue(is_array($result));
         $this->assertArrayHasKey('message', $result);
     }
@@ -32,7 +32,7 @@ class CurrenseesTest extends TestCase
         $targetCurrency = 'EUR';
         $amount = 1000;
 
-        $result = $this->currensees->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
+        $result = $this->fxdatapi->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
         $this->assertTrue(is_array($result));
     }
 
@@ -43,7 +43,7 @@ class CurrenseesTest extends TestCase
         $amount = 1000;
         $date = '2023_04_05';
 
-        $result = $this->currensees->convertAll($username, $baseCurrency, $amount, $date);
+        $result = $this->fxdatapi->convertAll($username, $baseCurrency, $amount, $date);
         $this->assertTrue(is_array($result));
     }
 
@@ -54,7 +54,7 @@ class CurrenseesTest extends TestCase
         $month = '04';
         $year = '2023';
 
-        $result = $this->currensees->getCurrencies($username, $day, $month, $year);
+        $result = $this->fxdatapi->getCurrencies($username, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
 
@@ -66,7 +66,7 @@ class CurrenseesTest extends TestCase
         $month = '04';
         $year = '2023';
 
-        $result = $this->currensees->getCurrency($uuid, $username, $day, $month, $year);
+        $result = $this->fxdatapi->getCurrency($uuid, $username, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
 
@@ -78,7 +78,7 @@ class CurrenseesTest extends TestCase
         $month = '04';
         $year = '2023';
 
-        $result = $this->currensees->getHistoricalData($username, $date, $day, $month, $year);
+        $result = $this->fxdatapi->getHistoricalData($username, $date, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
 
@@ -91,7 +91,7 @@ class CurrenseesTest extends TestCase
         $year = '2023';
         $date = '2023_04_05';
 
-        $result = $this->currensees->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
+        $result = $this->fxdatapi->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
         $this->assertTrue(is_array($result));
     }
 
@@ -99,7 +99,7 @@ class CurrenseesTest extends TestCase
     {
         $date = '2023_04_05';
     
-        $result = $this->currensees->getDailyAverage($date);
+        $result = $this->fxdatapi->getDailyAverage($date);
         $this->assertTrue(is_array($result));
     }
     
@@ -108,7 +108,7 @@ class CurrenseesTest extends TestCase
         $from_date = '2023_04_03';
         $to_date = '2023_04_07';
     
-        $result = $this->currensees->getWeeklyAverage($from_date, $to_date);
+        $result = $this->fxdatapi->getWeeklyAverage($from_date, $to_date);
         $this->assertTrue(is_array($result));
     }
 
@@ -117,7 +117,7 @@ class CurrenseesTest extends TestCase
         $year = '2023';
         $month = '04';
     
-        $result = $this->currensees->getMonthlyAverage($year, $month);
+        $result = $this->fxdatapi->getMonthlyAverage($year, $month);
         $this->assertTrue(is_array($result));
     }
 
@@ -128,7 +128,7 @@ class CurrenseesTest extends TestCase
         $month = '04';
         $year = '2023';
 
-        $result = $this->currensees->getMarginsSpreads($username, $day, $month, $year);
+        $result = $this->fxdatapi->getMarginsSpreads($username, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
 
@@ -140,7 +140,7 @@ class CurrenseesTest extends TestCase
         $month = '04';
         $year = '2023';
 
-        $result = $this->currensees->getMarginSpread($uuid, $username, $day, $month, $year);
+        $result = $this->fxdatapi->getMarginSpread($uuid, $username, $day, $month, $year);
         $this->assertTrue(is_array($result));
     }
 
@@ -148,7 +148,7 @@ class CurrenseesTest extends TestCase
     {
         $username = 'your_username';
 
-        $result = $this->currensees->getAllPerformances($username);
+        $result = $this->fxdatapi->getAllPerformances($username);
         $this->assertTrue(is_array($result));
     }
 
@@ -157,7 +157,7 @@ class CurrenseesTest extends TestCase
         $uuid = 'd4762c44-e3c6-11ed-8570-acde48001122';
         $username = 'your_username';
 
-        $result = $this->currensees->getPerformanceById($uuid, $username);
+        $result = $this->fxdatapi->getPerformanceById($uuid, $username);
         $this->assertTrue(is_array($result));
     }
 
@@ -165,7 +165,7 @@ class CurrenseesTest extends TestCase
     {
         $username = 'your_username';
 
-        $result = $this->currensees->getAllSignals($username);
+        $result = $this->fxdatapi->getAllSignals($username);
         $this->assertTrue(is_array($result));
     }
 
@@ -174,7 +174,7 @@ class CurrenseesTest extends TestCase
         $uuid = 'd46cc05a-e3c6-11ed-8570-acde48001122';
         $username = 'your_username';
 
-        $result = $this->currensees->getSignalById($uuid, $username);
+        $result = $this->fxdatapi->getSignalById($uuid, $username);
         $this->assertTrue(is_array($result));
     }
 }

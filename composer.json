@@ -1,5 +1,5 @@
 {
-    "name": "moatsystems\/currensees",
+    "name": "moatsystems\/fxdatapi",
     "description": "The SDK provides convenient access to the Currency API for applications written in the PHP Programming Language.",
     "type": "library",
     "keywords": [
@@ -9,7 +9,7 @@
         "api",
         "currency",
         "currency api",
-        "currensees",
+        "fxdatapi",
         "exchange",
         "exchange rates"
     ],

@@ -1,4 +1,4 @@
-<phpunit bootstrap="tests/CurrenseesTest.php" colors="true">
+<phpunit bootstrap="tests/FxdatapiTest.php" colors="true">
     <php>
       <env name="IS_RUNNING_PHPUNIT" value="true"/>
     </php>

@@ -1,9 +1,9 @@
 ## Currency API PHP Library
 
-[![Build Status](https://github.com/moatsystems/currensees-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/moatsystems/currensees-php/actions?query=branch%3Amain)
-[![Latest Stable Version](http://poser.pugx.org/moatsystems/currensees/v)](https://packagist.org/packages/moatsystems/currensees)
-[![Total Downloads](https://poser.pugx.org/moatsystems/currensees/downloads.svg)](https://packagist.org/packages/moatsystems/currensees)
-[![License](https://poser.pugx.org/moatsystems/currensees/license.svg)](https://packagist.org/packages/moatsystems/currensees)
+[![Build Status](https://github.com/moatsystems/fxdatapi-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/moatsystems/fxdatapi-php/actions?query=branch%3Amain)
+[![Latest Stable Version](http://poser.pugx.org/moatsystems/fxdatapi/v)](https://packagist.org/packages/moatsystems/fxdatapi)
+[![Total Downloads](https://poser.pugx.org/moatsystems/fxdatapi/downloads.svg)](https://packagist.org/packages/moatsystems/fxdatapi)
+[![License](https://poser.pugx.org/moatsystems/fxdatapi/license.svg)](https://packagist.org/packages/moatsystems/fxdatapi)
 
 The SDK provides convenient access to the [Currency API](https://moatsystems.com/currency-api/) for applications written in the [PHP](https://www.php.net/) Programming Language.
 
@@ -34,7 +34,7 @@ composer install
 Install Currency API PHP SDK by running the following command:
 
 ```sh
-composer require moatsystems/currensees
+composer require moatsystems/fxdatapi
 ```
 
 ### Usage Example
@@ -42,17 +42,17 @@ composer require moatsystems/currensees
 ```php
 ## create a file called currency_api.php
 <?php
-use Currensees\Currensees;
+use Fxdatapi\Fxdatapi;
 
-// Initialize the Currensees SDK
-$currensees = new Currensees();
+// Initialize the Fxdatapi SDK
+$fxdatapi = new Fxdatapi();
 
-// Set your username and password for the Currensees API
+// Set your username and password for the Currency API
 $username = 'your_username';
 $password = 'your_password';
 
 // Log in to the API and obtain a token (if necessary)
-$loginResult = $currensees->login($username, $password);
+$loginResult = $fxdatapi->login($username, $password);
 if ($loginResult) {
     echo "Login successful.\n";
 } else {
@@ -87,7 +87,7 @@ $performanceId = 'performance_id';
 $signalId = 'signal_id';
 
 // Call the convert method to perform the currency conversion
-$conversionResult = $currensees->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
+$conversionResult = $fxdatapi->convert($username, $date, $baseCurrency, $targetCurrency, $amount);
 if ($conversionResult) {
     echo "Conversion result: " . json_encode($conversionResult) . "\n";
 } else {
@@ -95,7 +95,7 @@ if ($conversionResult) {
 }
 
 // Call the convertAll method to convert the base currency to all available target currencies
-$convertAllResult = $currensees->convertAll($username, $baseCurrency, $amount, $date);
+$convertAllResult = $fxdatapi->convertAll($username, $baseCurrency, $amount, $date);
 if ($convertAllResult) {
     echo "Conversion to all currencies successful:\n";
     echo json_encode($convertAllResult) . "\n";
@@ -104,7 +104,7 @@ if ($convertAllResult) {
 }
 
 // Call the getCurrencies method to get the available currencies for the given date
-$currenciesResult = $currensees->getCurrencies($username, $day, $month, $year);
+$currenciesResult = $fxdatapi->getCurrencies($username, $day, $month, $year);
 if ($currenciesResult) {
     echo "Currencies for " . $day . "/" . $month . "/" . $year . ":\n";
     echo json_encode($currenciesResult) . "\n";
@@ -113,7 +113,7 @@ if ($currenciesResult) {
 }
 
 // Call the getCurrency method to get the details of the specific currency for the given date
-$currencyResult = $currensees->getCurrency($uuid, $username, $day, $month, $year);
+$currencyResult = $fxdatapi->getCurrency($uuid, $username, $day, $month, $year);
 if ($currencyResult) {
     echo "Currency details for " . $day . "/" . $month . "/" . $year . ":\n";
     echo json_encode($currencyResult) . "\n";
@@ -122,7 +122,7 @@ if ($currencyResult) {
 }
 
 // Call the getHistoricalData method to get historical data for all currencies for the given date
-$historicalDataResult = $currensees->getHistoricalData($username, $date, $day, $month, $year);
+$historicalDataResult = $fxdatapi->getHistoricalData($username, $date, $day, $month, $year);
 if ($historicalDataResult) {
     echo "Historical data for " . $date . ":\n";
     echo json_encode($historicalDataResult) . "\n";
@@ -131,7 +131,7 @@ if ($historicalDataResult) {
 }
 
 // Call the getHistoricalDataForCurrency method to get historical data for a specific currency
-$historicalDataForCurrencyResult = $currensees->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
+$historicalDataForCurrencyResult = $fxdatapi->getHistoricalDataForCurrency($uuid, $username, $day, $month, $year, $date);
 if ($historicalDataForCurrencyResult) {
     echo "Historical data for currency " . $uuid . " on " . $date . ":\n";
     echo json_encode($historicalDataForCurrencyResult) . "\n";
@@ -140,7 +140,7 @@ if ($historicalDataForCurrencyResult) {
 }
 
 // Call the getDailyAverage method to get the daily average for the given date
-$dailyAverageResult = $currensees->getDailyAverage($dailyAverageDate);
+$dailyAverageResult = $fxdatapi->getDailyAverage($dailyAverageDate);
 if ($dailyAverageResult) {
     echo "Daily average for " . $dailyAverageDate . ":\n";
     echo json_encode($dailyAverageResult) . "\n";
@@ -149,7 +149,7 @@ if ($dailyAverageResult) {
 }
 
 // Call the getWeeklyAverage method to get the weekly average for the given date range
-$weeklyAverageResult = $currensees->getWeeklyAverage($weeklyAverageFromDate, $weeklyAverageToDate);
+$weeklyAverageResult = $fxdatapi->getWeeklyAverage($weeklyAverageFromDate, $weeklyAverageToDate);
 if ($weeklyAverageResult) {
     echo "Weekly average from " . $weeklyAverageFromDate . " to " . $weeklyAverageToDate . ":\n";
     echo json_encode($weeklyAverageResult) . "\n";
@@ -158,7 +158,7 @@ if ($weeklyAverageResult) {
 }
 
 // Call the getMonthlyAverage method to get the monthly average for the given year and month
-$monthlyAverageResult = $currensees->getMonthlyAverage($monthlyAverageYear, $monthlyAverageMonth);
+$monthlyAverageResult = $fxdatapi->getMonthlyAverage($monthlyAverageYear, $monthlyAverageMonth);
 if ($monthlyAverageResult) {
     echo "Monthly average for " . $monthlyAverageYear . " and " . $monthlyAverageMonth . ":\n";
     echo json_encode($monthlyAverageResult) . "\n";
@@ -167,7 +167,7 @@ if ($monthlyAverageResult) {
 }
 
 // Call the getMarginsSpreads method to get the margins and spreads for the given date
-$marginsSpreadsResult = $currensees->getMarginsSpreads($username, $day, $month, $year);
+$marginsSpreadsResult = $fxdatapi->getMarginsSpreads($username, $day, $month, $year);
 if ($marginsSpreadsResult) {
     echo "Margins and spreads for " . $day . "/" . $month . "/" . $year . ":\n";
     echo json_encode($marginsSpreadsResult) . "\n";
@@ -176,7 +176,7 @@ if ($marginsSpreadsResult) {
 }
 
 // Call the getMarginSpread method to get the details of the specific margin or spread for the given date
-$marginSpreadResult = $currensees->getMarginSpread($uuid, $username, $day, $month, $year);
+$marginSpreadResult = $fxdatapi->getMarginSpread($uuid, $username, $day, $month, $year);
 if ($marginSpreadResult) {
     echo "Margin or spread details for " . $day . "/" . $month . "/" . $year . ":\n";
     echo json_encode($marginSpreadResult) . "\n";
@@ -185,7 +185,7 @@ if ($marginSpreadResult) {
 }
 
 // Call the getAllPerformances method to get all performances
-$getAllPerformancesResult = $currensees->getAllPerformances($username);
+$getAllPerformancesResult = $fxdatapi->getAllPerformances($username);
 if ($getAllPerformancesResult) {
     echo "Performances list:\n";
     echo json_encode($getAllPerformancesResult) . "\n";
@@ -194,7 +194,7 @@ if ($getAllPerformancesResult) {
 }
 
 // Call the getPerformanceById method to get the details of a specific performance
-$getPerformanceByIdResult = $currensees->getPerformanceById($performanceId, $username);
+$getPerformanceByIdResult = $fxdatapi->getPerformanceById($performanceId, $username);
 if ($getPerformanceByIdResult) {
     echo "Performance details for " . $performanceId . ":\n";
     echo json_encode($getPerformanceByIdResult) . "\n";
@@ -203,7 +203,7 @@ if ($getPerformanceByIdResult) {
 }
 
 // Call the getAllSignals method to get all signals
-$getAllSignalsResult = $currensees->getAllSignals($username);
+$getAllSignalsResult = $fxdatapi->getAllSignals($username);
 if ($getAllSignalsResult) {
     echo "Signals list:\n";
     echo json_encode($getAllSignalsResult) . "\n";
@@ -212,7 +212,7 @@ if ($getAllSignalsResult) {
 }
 
 // Call the getSignalById method to get the details of a specific signal
-$getSignalByIdResult = $currensees->getSignalById($signalId, $username);
+$getSignalByIdResult = $fxdatapi->getSignalById($signalId, $username);
 if ($getSignalByIdResult) {
     echo "Signal details for " . $signalId . ":\n";
     echo json_encode($getSignalByIdResult) . "\n";
@@ -235,7 +235,7 @@ Subscribe [here](https://moatsystems.com/currency-api/) for a user account.
 
 ### Using the Currency API
 
-You can read the [API documentation](https://docs.currensees.com/) to understand what’s possible with the Currency API. If you need further assistance, don’t hesitate to [contact us](https://moatsystems.com/contact/).
+You can read the [API documentation](https://docs.fxdatapi.com/) to understand what’s possible with the Currency API. If you need further assistance, don’t hesitate to [contact us](https://moatsystems.com/contact/).
 
 ### License
 

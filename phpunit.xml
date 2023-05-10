@@ -12,7 +12,7 @@
     </php>
     <testsuites>
         <testsuite name="Currency API PHP Test Suite">
-            <directory suffix="tests/CurrenseesTest.php">tests</directory>
+            <directory suffix="tests/FxdatapiTest.php">tests</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">

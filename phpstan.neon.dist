@@ -5,7 +5,7 @@ parameters:
 	level: 1
 
 	bootstrapFiles:
-		- tests/CurrenseesTest.php
+		- tests/FxdatapiTest.php
 
 	ignoreErrors:
 		- '#Unsafe usage of new static\(\).#'
