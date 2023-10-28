@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-release:
-    if: github.repository_owner == 'moatsystems'
+    if: github.repository_owner == 'horisystems'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

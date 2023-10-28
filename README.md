@@ -1,11 +1,11 @@
 ## Currency API PHP Library
 
-[![Build Status](https://github.com/moatsystems/fxdatapi-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/moatsystems/fxdatapi-php/actions?query=branch%3Amain)
-[![Latest Stable Version](http://poser.pugx.org/moatsystems/fxdatapi/v)](https://packagist.org/packages/moatsystems/fxdatapi)
-[![Total Downloads](https://poser.pugx.org/moatsystems/fxdatapi/downloads.svg)](https://packagist.org/packages/moatsystems/fxdatapi)
-[![License](https://poser.pugx.org/moatsystems/fxdatapi/license.svg)](https://packagist.org/packages/moatsystems/fxdatapi)
+[![Build Status](https://github.com/horisystems/fxdatapi-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/horisystems/fxdatapi-php/actions?query=branch%3Amain)
+[![Latest Stable Version](http://poser.pugx.org/horisystems/fxdatapi/v)](https://packagist.org/packages/horisystems/fxdatapi)
+[![Total Downloads](https://poser.pugx.org/horisystems/fxdatapi/downloads.svg)](https://packagist.org/packages/horisystems/fxdatapi)
+[![License](https://poser.pugx.org/horisystems/fxdatapi/license.svg)](https://packagist.org/packages/horisystems/fxdatapi)
 
-The SDK provides convenient access to the [Currency API](https://moatsystems.com/currency-api/) for applications written in the [PHP](https://www.php.net/) Programming Language.
+The SDK provides convenient access to the [Currency API](https://horisystems.com/currency-api/) for applications written in the [PHP](https://www.php.net/) Programming Language.
 
 ### Requirements
 
@@ -34,7 +34,7 @@ composer install
 Install Currency API PHP SDK by running the following command:
 
 ```sh
-composer require moatsystems/fxdatapi
+composer require horisystems/fxdatapi
 ```
 
 ### Usage Example
@@ -231,11 +231,11 @@ php currency_api.php
 
 ### Setting up Currency API Account
 
-Subscribe [here](https://moatsystems.com/currency-api/) for a user account.
+Subscribe [here](https://horisystems.com/currency-api/) for a user account.
 
 ### Using the Currency API
 
-You can read the [API documentation](https://docs.fxdatapi.com/) to understand what’s possible with the Currency API. If you need further assistance, don’t hesitate to [contact us](https://moatsystems.com/contact/).
+You can read the [API documentation](https://docs.fxdatapi.com/) to understand what’s possible with the Currency API. If you need further assistance, don’t hesitate to [contact us](https://horisystems.com/contact/).
 
 ### License
 
@@ -243,4 +243,4 @@ This project is licensed under the [BSD 3-Clause License](./LICENSE).
 
 ### Copyright
 
-(c) 2023 [Moat Systems Limited](https://moatsystems.com).
+(c) 2023 [Hori Systems Limited](https://horisystems.com).

@@ -1,11 +1,11 @@
 {
-    "name": "moatsystems\/fxdatapi",
+    "name": "horisystems\/fxdatapi",
     "description": "The SDK provides convenient access to the Currency API for applications written in the PHP Programming Language.",
     "type": "library",
     "keywords": [
-        "moatsystems",
-        "moat systems",
-        "moat",
+        "horisystems",
+        "hori systems",
+        "hori",
         "api",
         "currency",
         "currency api",
@@ -20,8 +20,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Moat Systems Limited",
-            "email": "hi@moatsystems.com"
+            "name": "Hori Systems Limited",
+            "email": "hi@horisystems.com"
         }
     ],
     "minimum-stability": "stable",

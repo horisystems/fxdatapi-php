@@ -58,14 +58,14 @@ body:
     id: lib-version
     attributes:
       label: Library version
-      placeholder: currensees-php v1.100.0
+      placeholder: fxdatapi-php v1.100.0
     validations:
       required: true
   - type: input
     id: api-changelog
     attributes:
       label: API Changelog
-      description: See [Changelog](https://docs.currensees.com/#api-changelog) in the API Reference to find which changelog you're using
+      description: See [Changelog](https://docs.fxdatapi.com/#api-changelog) in the API Reference to find which changelog you're using
       placeholder: "2020-08-27"
     validations:
       required: true
