@@ -16,4 +16,4 @@ jobs:
           changelog: CHANGELOG.md
           branch: main
         env:
-          HORI_TOKEN: ${{ secrets.HORI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HORI_TOKEN }}
